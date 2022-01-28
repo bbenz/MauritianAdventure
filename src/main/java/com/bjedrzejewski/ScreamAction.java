@@ -1,6 +1,5 @@
-package com.bjedrzejewski.action;
+package com.bjedrzejewski;
 
-import com.bjedrzejewski.game.GameState;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @Slf4j
-public final class ScreamAction implements PlayerAction {
+class ScreamAction implements PlayerAction {
 
 	private static final String screamUrl = "scream";
 
@@ -27,7 +26,7 @@ public final class ScreamAction implements PlayerAction {
 	}
 
 	@Override
-	public String getActionUrl() {
+	public String actionUrl() {
 		return screamUrl;
 	}
 
@@ -37,11 +36,11 @@ public final class ScreamAction implements PlayerAction {
 	}
 
 	@Override
-	public String getActionLabel() {
+	public String actionLabel() {
 		return "Scream futilely into the ocean.";
 	}
 
-	public String getActionDescription() {
+	public String actionDescription() {
 		return actionDescription;
 	}
 

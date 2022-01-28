@@ -13,13 +13,10 @@
 </head>
 <body style="text-align: center">
 <h1>Mauritian Adventure</h1>
-<div>Player Health: ${gameState.getPlayer().getLife()}</div>
+<div>Player Health: ${ gameState.player().life() }</div>
 <div>
-
-    ${gameState.getPlayer().getDescription()}
-
+    ${gameState.player().description()}
 </div>
-
 <div>
     <#noautoesc>
         ${mainText}
@@ -27,13 +24,13 @@
 </div>
 <#list actions as action>
 
-    <button type="button" class="btn btn-default" onclick="window.location.href='/action/${action.getActionUrl()}'"
-            style="margin: 5px">${action.getActionLabel()}</button>
+    <button type="button" class="btn btn-default" onclick="window.location.href='/action/${action.actionUrl()}'"
+            style="margin: 5px">${action.actionLabel()}</button>
     <br>
 </#list>
 <div>
-    <img src="/images/${location.getImage()}"
-         style="width: 100%; filter: brightness(${gameState.getCurrentDayTime().getBrightness()}%)">
+    <img src="/images/${location.image()}"
+         style="width: 100%; filter: brightness(${gameState. currentDayTime().brightness()}%)">
 </div>
 </body>
 </html>

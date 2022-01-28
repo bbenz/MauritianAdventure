@@ -1,7 +1,5 @@
-package com.bjedrzejewski.location.beach;
+package com.bjedrzejewski;
 
-import com.bjedrzejewski.action.PlayerAction;
-import com.bjedrzejewski.game.GameState;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpSession;
@@ -10,20 +8,20 @@ import javax.servlet.http.HttpSession;
  * Created by bartoszjedrzejewski on 22/12/2016.
  */
 @Slf4j
-public class ExploreTheBeach implements PlayerAction {
+class ExploreTheBeach implements PlayerAction {
 
 	private static final String actionDescription = "You explore the beach for a while.";
 
 	public int exploredTimes = 0;
 
-	private BeachLocation beach;
+	private Location beach;
 
-	public ExploreTheBeach(BeachLocation beach) {
+	public ExploreTheBeach(Location beach) {
 		this.beach = beach;
 	}
 
 	@Override
-	public String getActionUrl() {
+	public String actionUrl() {
 		return "explore-the-beach";
 	}
 
@@ -32,17 +30,17 @@ public class ExploreTheBeach implements PlayerAction {
 		exploredTimes++;
 		log.debug("Player explored the beach: " + exploredTimes + " times");
 		if (exploredTimes == 2) {
-			beach.addAction(new GoToTheForest());
+			beach.availableActions().add(new GoToTheForest());
 		}
 	}
 
 	@Override
-	public String getActionLabel() {
+	public String actionLabel() {
 		return "Explore the Beach";
 	}
 
 	@Override
-	public String getActionDescription() {
+	public String actionDescription() {
 		return actionDescription;
 	}
 

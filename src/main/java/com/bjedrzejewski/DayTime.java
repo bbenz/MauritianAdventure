@@ -1,8 +1,4 @@
-package com.bjedrzejewski.game;
-
-import com.bjedrzejewski.action.PlayerAction;
-import com.bjedrzejewski.action.RestAction;
-import com.bjedrzejewski.action.SleepAction;
+package com.bjedrzejewski;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,81 +10,81 @@ public enum DayTime {
 
 	MORNING {
 		@Override
-		public List<PlayerAction> getBasicActions() {
+		public List<PlayerAction> basicActions() {
 			List<PlayerAction> basicPlayerActions = new ArrayList<>();
 			basicPlayerActions.add(RestAction.getInstance());
 			return basicPlayerActions;
 		}
 
 		@Override
-		public String getDescription() {
+		public String description() {
 			return "It is Morning.";
 		}
 
 		@Override
-		public int getBrightness() {
+		public int brightness() {
 			return 100;
 		}
 	},
 	AFTERNOON {
 		@Override
-		public List<PlayerAction> getBasicActions() {
+		public List<PlayerAction> basicActions() {
 			List<PlayerAction> basicPlayerActions = new ArrayList<>();
 			basicPlayerActions.add(RestAction.getInstance());
 			return basicPlayerActions;
 		}
 
 		@Override
-		public String getDescription() {
+		public String description() {
 			return "It is Afternoon.";
 		}
 
 		@Override
-		public int getBrightness() {
+		public int brightness() {
 			return 90;
 		}
 	},
 	EVENING {
 		@Override
-		public List<PlayerAction> getBasicActions() {
+		public List<PlayerAction> basicActions() {
 			List<PlayerAction> basicPlayerActions = new ArrayList<>();
 			basicPlayerActions.add(RestAction.getInstance());
 			return basicPlayerActions;
 		}
 
 		@Override
-		public String getDescription() {
+		public String description() {
 			return "It is Evening.";
 		}
 
 		@Override
-		public int getBrightness() {
+		public int brightness() {
 			return 40;
 		}
 	},
 	NIGHT {
 		@Override
-		public List<PlayerAction> getBasicActions() {
+		public List<PlayerAction> basicActions() {
 			List<PlayerAction> basicPlayerActions = new ArrayList<>();
 			basicPlayerActions.add(SleepAction.getInstance());
 			return basicPlayerActions;
 		}
 
 		@Override
-		public String getDescription() {
+		public String description() {
 			return "It is Night.";
 		}
 
 		@Override
-		public int getBrightness() {
+		public int brightness() {
 			return 20;
 		}
 	};
 
-	public abstract List<PlayerAction> getBasicActions();
+	public abstract List<PlayerAction> basicActions();
 
-	public abstract String getDescription();
+	public abstract String description();
 
-	public abstract int getBrightness();
+	public abstract int brightness();
 
 }

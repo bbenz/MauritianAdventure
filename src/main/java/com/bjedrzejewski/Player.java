@@ -1,4 +1,4 @@
-package com.bjedrzejewski.player;
+package com.bjedrzejewski;
 
 import java.io.Serializable;
 
@@ -7,17 +7,7 @@ import java.io.Serializable;
  * <p>
  * This is the class representing the Player in the game.
  */
-public class Player implements Serializable {
-
-	private final int life;
-
-	public Player(int life) {
-		this.life = life;
-	}
-
-	public int getLife() {
-		return life;
-	}
+public record Player(int life) implements Serializable {
 
 	public String description() {
 		return "You are healthy and well rested.";

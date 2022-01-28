@@ -1,6 +1,5 @@
-package com.bjedrzejewski.action;
+package com.bjedrzejewski;
 
-import com.bjedrzejewski.game.GameState;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @Slf4j
-public final class RestAction implements PlayerAction {
+class RestAction implements PlayerAction {
 
 	private static final String restUrl = "rest";
 
@@ -21,13 +20,12 @@ public final class RestAction implements PlayerAction {
 
 	private static final String actionDescription = "You rest for a while.";
 
-
 	public static RestAction getInstance() {
 		return INSTANCE;
 	}
 
 	@Override
-	public String getActionUrl() {
+	public String actionUrl() {
 		return restUrl;
 	}
 
@@ -37,12 +35,12 @@ public final class RestAction implements PlayerAction {
 	}
 
 	@Override
-	public String getActionLabel() {
+	public String actionLabel() {
 		return "Take a rest";
 	}
 
 	@Override
-	public String getActionDescription() {
+	public String actionDescription() {
 		return actionDescription;
 	}
 

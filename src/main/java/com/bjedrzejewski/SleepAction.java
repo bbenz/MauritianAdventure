@@ -1,7 +1,7 @@
-package com.bjedrzejewski.action;
+package com.bjedrzejewski;
 
-import com.bjedrzejewski.game.GameState;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpSession;
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpSession;
  * <p>
  * This action represents player sleeping. It is a singleton.
  */
-@Controller
+@Component
 @Slf4j
-public final class SleepAction implements PlayerAction {
+class SleepAction implements PlayerAction {
 
 	private static final String restUrl = "sleep";
 
@@ -26,7 +26,7 @@ public final class SleepAction implements PlayerAction {
 	}
 
 	@Override
-	public String getActionUrl() {
+	public String actionUrl() {
 		return restUrl;
 	}
 
@@ -36,12 +36,12 @@ public final class SleepAction implements PlayerAction {
 	}
 
 	@Override
-	public String getActionLabel() {
+	public String actionLabel() {
 		return "Go to sleep";
 	}
 
 	@Override
-	public String getActionDescription() {
+	public String actionDescription() {
 		return actionDescription;
 	}
 

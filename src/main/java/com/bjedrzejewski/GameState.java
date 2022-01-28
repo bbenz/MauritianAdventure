@@ -1,12 +1,6 @@
-package com.bjedrzejewski.game;
-
-import com.bjedrzejewski.action.PlayerAction;
-import com.bjedrzejewski.location.Location;
-import com.bjedrzejewski.location.beach.BeachLocation;
-import com.bjedrzejewski.player.Player;
+package com.bjedrzejewski;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +18,7 @@ public class GameState implements Serializable {
 	// Game starts in the morning
 	private DayTime currentDayTime = DayTime.MORNING;
 
-	private Map<String, Location> visitedLocations = new HashMap<>();
+	private final Map<String, Location> visitedLocations = new HashMap<>();
 
 	// Game starts on the beach
 	private Location playerLocation;
@@ -32,21 +26,17 @@ public class GameState implements Serializable {
 	// Description of the last action
 	private String lastActionDescription = "";
 
-	public static GameState createGame() {
-		return new GameState();
-	}
-
-	private GameState() {
+	GameState() {
 		player = new Player(100);
-		visitLocation(new BeachLocation());
+		visitLocation(Locations.buildBeachLocation());
 	}
 
 	public void visitLocation(Location location) {
-		if (visitedLocations.containsKey(location.getLocationCode())) {
-			playerLocation = visitedLocations.get(location.getLocationCode());
+		if (visitedLocations.containsKey(location.locationCode())) {
+			playerLocation = visitedLocations.get(location.locationCode());
 		}
 		else {
-			visitedLocations.put(location.getLocationCode(), location);
+			visitedLocations.put(location.locationCode(), location);
 			playerLocation = location;
 		}
 	}
@@ -59,10 +49,10 @@ public class GameState implements Serializable {
 		Map<String, PlayerAction> availablePlayerActions = new HashMap<>();
 
 		// Add the basic actions that are always available
-		getBasicActions().stream().forEach(d -> availablePlayerActions.put(d.getActionUrl(), d));
+		getBasicActions().forEach(d -> availablePlayerActions.put(d.actionUrl(), d));
 
 		// Add actions that are location specific
-		playerLocation.getAvailableActions().stream().forEach(d -> availablePlayerActions.put(d.getActionUrl(), d));
+		playerLocation.availableActions().forEach(d -> availablePlayerActions.put(d.actionUrl(), d));
 
 		return availablePlayerActions;
 	}
@@ -82,26 +72,16 @@ public class GameState implements Serializable {
 	 * Provides the description of what the player sees and what is happening to him.
 	 * @return the text description to be displayed
 	 */
-	public String getDescription() {
-		String description = "";
-
-		// add report of last action
-		description += getLastActionDescription();
-		description += "<br>";
-
-		// add location text
-		description += playerLocation.getDescription();
-
-		return description;
-
+	public String description() {
+		return String.format("%s <br/> %s", lastActionDescription(), playerLocation.description());
 	}
 
 	// gets the current GameState's lastActionDescription
-	public String getLastActionDescription() {
+	public String lastActionDescription() {
 		return lastActionDescription;
 	}
 
-	public void setLastActionDescription(String newDescription) {
+	public void lastActionDescription(String newDescription) {
 		lastActionDescription = newDescription;
 	}
 
@@ -110,26 +90,22 @@ public class GameState implements Serializable {
 	 * @return
 	 */
 	private List<PlayerAction> getBasicActions() {
-		List<PlayerAction> basicPlayerActions = new ArrayList<>();
-
-		basicPlayerActions.addAll(currentDayTime.getBasicActions());
-
-		return basicPlayerActions;
+		return List.copyOf(currentDayTime.basicActions());
 	}
 
-	public Player getPlayer() {
+	public Player player() {
 		return player;
 	}
 
-	public DayTime getCurrentDayTime() {
+	public DayTime currentDayTime() {
 		return currentDayTime;
 	}
 
-	public int getDaysPassed() {
+	public int daysPassed() {
 		return daysPassed;
 	}
 
-	public Location getPlayerLocation() {
+	public Location playerLocation() {
 		return playerLocation;
 	}
 
