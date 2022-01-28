@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
  * Created by bartoszjedrzejewski on 22/12/2016.
  */
 @Slf4j
-class ExploreTheBeach implements PlayerAction {
+class ExploreTheBeachAction implements PlayerAction {
 
 	private static final String actionDescription = "You explore the beach for a while.";
 
@@ -16,7 +16,7 @@ class ExploreTheBeach implements PlayerAction {
 
 	private Location beach;
 
-	public ExploreTheBeach(Location beach) {
+	public ExploreTheBeachAction(Location beach) {
 		this.beach = beach;
 	}
 
@@ -30,7 +30,7 @@ class ExploreTheBeach implements PlayerAction {
 		exploredTimes++;
 		log.debug("Player explored the beach: " + exploredTimes + " times");
 		if (exploredTimes == 2) {
-			beach.availableActions().add(new GoToTheForest());
+			beach.availableActions().add(new GoToTheForestAction());
 		}
 	}
 

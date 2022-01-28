@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by bartoszjedrzejewski on 22/12/2016.
  */
-class GoToTheForest implements PlayerAction {
+class GoToTheForestAction implements PlayerAction {
 
 	@Override
 	public String actionUrl() {

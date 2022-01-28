@@ -15,7 +15,7 @@ abstract class Locations {
 		var location = new Location("beach",
 				"You are on a beautiful beach. The water is clear blue and you can see forest and some mountains in the distance. ",
 				"beach.jpg", new ArrayList<>());
-		location.availableActions().add(new ExploreTheBeach(location));
+		location.availableActions().add(new ExploreTheBeachAction(location));
 		location.availableActions().add(ScreamAction.getInstance());
 		return location;
 	}

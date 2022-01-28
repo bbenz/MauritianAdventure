@@ -1,16 +1,20 @@
 package com.bjedrzejewski;
 
+import freemarker.ext.beans.DefaultMemberAccessPolicy;
+import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Version;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.nativex.hint.TypeAccess;
+import org.springframework.nativex.hint.ResourceHint;
 import org.springframework.nativex.hint.TypeHint;
 
-@TypeHint(
-		types = { freemarker.template.DefaultObjectWrapper.class, Player.class, GameState.class, Location.class,
-				DayTime.class, PlayerAction.class, Version.class, },
-		access = { TypeAccess.DECLARED_CLASSES, TypeAccess.DECLARED_CONSTRUCTORS, TypeAccess.DECLARED_FIELDS,
-				TypeAccess.DECLARED_METHODS })
+import static org.springframework.nativex.hint.TypeAccess.*;
+
+@ResourceHint(patterns = { "/freemarker/ext/beans/DefaultMemberAccessPolicy-rules" })
+@TypeHint(types = { PlayerAction.class, ScreamAction.class, RestAction.class, SleepAction.class,
+		ExploreTheBeachAction.class, GoToTheForestAction.class, DefaultMemberAccessPolicy.class,
+		DefaultObjectWrapper.class, Player.class, GameState.class, Location.class, DayTime.class, Version.class, },
+		access = { DECLARED_CLASSES, DECLARED_CONSTRUCTORS, DECLARED_FIELDS, DECLARED_METHODS })
 @SpringBootApplication
 public class MauritianAdventureApplication {
 
