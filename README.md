@@ -9,3 +9,6 @@ use some real front end technologies!
 * Run the application locally: `mvn spring-boot:run`
 * Build a Docker image: `mvn spring-boot:build-image`
 
+## Issues 
+* For some reason Freemarker requires all the types to be public. There's got to be some way around this.
+* Spring's integration for Freemarker and GraalVM do not like each other at the moment. 
