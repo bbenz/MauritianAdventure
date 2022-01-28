@@ -22,9 +22,6 @@ public final class ScreamAction implements PlayerAction {
 
 	private static final String actionDescription = "You scream into the horizon for some time.";
 
-	private ScreamAction() {
-	}
-
 	public static ScreamAction getInstance() {
 		return INSTANCE;
 	}

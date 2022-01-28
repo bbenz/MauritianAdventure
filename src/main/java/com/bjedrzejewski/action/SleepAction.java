@@ -21,9 +21,6 @@ public final class SleepAction implements PlayerAction {
 
 	private static final String actionDescription = "You sleep for the night.";
 
-	private SleepAction() {
-	}
-
 	public static SleepAction getInstance() {
 		return INSTANCE;
 	}

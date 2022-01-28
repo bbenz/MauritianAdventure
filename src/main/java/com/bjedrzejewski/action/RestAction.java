@@ -21,8 +21,6 @@ public final class RestAction implements PlayerAction {
 
 	private static final String actionDescription = "You rest for a while.";
 
-	private RestAction() {
-	}
 
 	public static RestAction getInstance() {
 		return INSTANCE;
@@ -42,8 +40,6 @@ public final class RestAction implements PlayerAction {
 	public String getActionLabel() {
 		return "Take a rest";
 	}
-
-	;
 
 	@Override
 	public String getActionDescription() {
