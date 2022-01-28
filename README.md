@@ -6,9 +6,13 @@ Velocity templating engine, Bootstrap and a few other technologies.
 Let's see how far it will get. Once there is something playable there, I will host it and if it is fun I may even
 use some real front end technologies!
 
-* Run the application locally: `mvn spring-boot:run`
-* Build a GraalVM native image: `mvn -DskipTests=true -Pnative clean package`
-* Build a Docker image (with a GraalVM native image inside of it and a minimal Linux distribution for the Docker image): `mvn spring-boot:build-image`
+Run the application locally: `mvn spring-boot:run`
+ 
+Build a GraalVM native image: `mvn -DskipTests=true -Pnative clean package`
+
+Build a Docker image (with a GraalVM native image inside of it and a minimal Linux distribution for 
+the Docker image): `mvn spring-boot:build-image`. You can run the resulting Docker image with 
+`docker run -p8080:8080 docker.io/library/mauritian-adventure:0.0.1-SNAPSHOT`
 
 
 ## Issues 
