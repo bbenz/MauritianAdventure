@@ -12,12 +12,12 @@ import java.util.List;
  */
 public interface Location extends Serializable {
 
-    List<PlayerAction> getAvailableActions();
+	List<PlayerAction> getAvailableActions();
 
-    String getDescription();
+	String getDescription();
 
-    String getLocationCode();
+	String getLocationCode();
 
-    String getImage();
+	String getImage();
 
 }

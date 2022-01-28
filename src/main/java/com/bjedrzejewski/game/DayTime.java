@@ -11,82 +11,84 @@ import java.util.List;
  * Created by bartoszjedrzejewski on 06/08/2016.
  */
 public enum DayTime {
-    MORNING {
-        @Override
-        public List<PlayerAction> getBasicActions() {
-            List<PlayerAction> basicPlayerActions = new ArrayList<>();
-            basicPlayerActions.add(RestAction.getInstance());
-            return basicPlayerActions;
-        }
 
-        @Override
-        public String getDescription() {
-            return "It is Morning.";
-        }
+	MORNING {
+		@Override
+		public List<PlayerAction> getBasicActions() {
+			List<PlayerAction> basicPlayerActions = new ArrayList<>();
+			basicPlayerActions.add(RestAction.getInstance());
+			return basicPlayerActions;
+		}
 
-        @Override
-        public int getBrightness() {
-            return 100;
-        }
-    },
-    AFTERNOON {
-        @Override
-        public List<PlayerAction> getBasicActions() {
-            List<PlayerAction> basicPlayerActions = new ArrayList<>();
-            basicPlayerActions.add(RestAction.getInstance());
-            return basicPlayerActions;
-        }
+		@Override
+		public String getDescription() {
+			return "It is Morning.";
+		}
 
-        @Override
-        public String getDescription() {
-            return "It is Afternoon.";
-        }
+		@Override
+		public int getBrightness() {
+			return 100;
+		}
+	},
+	AFTERNOON {
+		@Override
+		public List<PlayerAction> getBasicActions() {
+			List<PlayerAction> basicPlayerActions = new ArrayList<>();
+			basicPlayerActions.add(RestAction.getInstance());
+			return basicPlayerActions;
+		}
 
-        @Override
-        public int getBrightness() {
-            return 90;
-        }
-    },
-    EVENING {
-        @Override
-        public List<PlayerAction> getBasicActions() {
-            List<PlayerAction> basicPlayerActions = new ArrayList<>();
-            basicPlayerActions.add(RestAction.getInstance());
-            return basicPlayerActions;
-        }
+		@Override
+		public String getDescription() {
+			return "It is Afternoon.";
+		}
 
-        @Override
-        public String getDescription() {
-            return "It is Evening.";
-        }
+		@Override
+		public int getBrightness() {
+			return 90;
+		}
+	},
+	EVENING {
+		@Override
+		public List<PlayerAction> getBasicActions() {
+			List<PlayerAction> basicPlayerActions = new ArrayList<>();
+			basicPlayerActions.add(RestAction.getInstance());
+			return basicPlayerActions;
+		}
 
-        @Override
-        public int getBrightness() {
-            return 40;
-        }
-    },
-    NIGHT {
-        @Override
-        public List<PlayerAction> getBasicActions() {
-            List<PlayerAction> basicPlayerActions = new ArrayList<>();
-            basicPlayerActions.add(SleepAction.getInstance());
-            return basicPlayerActions;
-        }
+		@Override
+		public String getDescription() {
+			return "It is Evening.";
+		}
 
-        @Override
-        public String getDescription() {
-            return "It is Night.";
-        }
+		@Override
+		public int getBrightness() {
+			return 40;
+		}
+	},
+	NIGHT {
+		@Override
+		public List<PlayerAction> getBasicActions() {
+			List<PlayerAction> basicPlayerActions = new ArrayList<>();
+			basicPlayerActions.add(SleepAction.getInstance());
+			return basicPlayerActions;
+		}
 
-        @Override
-        public int getBrightness() {
-            return 20;
-        }
-    };
+		@Override
+		public String getDescription() {
+			return "It is Night.";
+		}
 
-    public abstract List<PlayerAction> getBasicActions();
+		@Override
+		public int getBrightness() {
+			return 20;
+		}
+	};
 
-    public abstract String getDescription();
+	public abstract List<PlayerAction> getBasicActions();
 
-    public abstract int getBrightness();
+	public abstract String getDescription();
+
+	public abstract int getBrightness();
+
 }

@@ -11,24 +11,24 @@ import java.util.List;
  */
 public class ForestLocation implements Location {
 
+	@Override
+	public List<PlayerAction> getAvailableActions() {
+		return new ArrayList<>();
+	}
 
-    @Override
-    public List<PlayerAction> getAvailableActions() {
-        return new ArrayList<>();
-    }
+	@Override
+	public String getDescription() {
+		return "You are in a deep tropical forrest. You can see many plants and small animals.";
+	}
 
-    @Override
-    public String getDescription() {
-        return "You are in a deep tropical forrest. You can see many plants and small animals.";
-    }
+	@Override
+	public String getLocationCode() {
+		return "forest";
+	}
 
-    @Override
-    public String getLocationCode() {
-        return "forest";
-    }
+	@Override
+	public String getImage() {
+		return "forest.jpg";
+	}
 
-    @Override
-    public String getImage() {
-        return "forest.jpg";
-    }
 }
