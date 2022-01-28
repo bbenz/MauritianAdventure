@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Created by bartoszjedrzejewski on 06/08/2016.
- */
+ */git
 public enum DayTime {
 
 	MORNING {
