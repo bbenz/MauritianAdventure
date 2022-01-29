@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
  * <p>
  * This action represents player sleeping. It is a singleton.
  */
-@Component
 @Slf4j
 class SleepAction implements PlayerAction {
 

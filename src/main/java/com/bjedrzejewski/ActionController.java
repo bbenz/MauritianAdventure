@@ -1,6 +1,5 @@
 package com.bjedrzejewski;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,11 +12,14 @@ import java.util.Map;
  * This controller is responsible for resolving player actions.
  */
 @Slf4j
-@RequiredArgsConstructor
 @Controller
 class ActionController {
 
 	private final GameController gameController;
+
+	ActionController(GameController gameController) {
+		this.gameController = gameController;
+	}
 
 	@GetMapping("/action/{type}")
 	String invokeAction(HttpSession session, Map<String, Object> model, @PathVariable String type) {

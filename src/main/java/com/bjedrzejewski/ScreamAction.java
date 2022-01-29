@@ -1,6 +1,7 @@
 package com.bjedrzejewski;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpSession;
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpSession;
  * This action represents player screaming. It is a singleton. This action will be removed
  * and was added as a learning process.
  */
-@Controller
 @Slf4j
 class ScreamAction implements PlayerAction {
 

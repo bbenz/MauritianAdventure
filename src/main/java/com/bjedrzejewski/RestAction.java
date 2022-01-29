@@ -1,6 +1,7 @@
 package com.bjedrzejewski;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpSession;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpSession;
  * <p>
  * This action represents player resting. It s a singleton.
  */
-@Controller
 @Slf4j
 class RestAction implements PlayerAction {
 
